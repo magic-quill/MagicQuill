@@ -76,7 +76,7 @@ There is an HD video on [Youtube](https://www.youtube.com/watch?v=5DiKfONMnE4).
     ```
     CUDA_VISIBLE_DEVICES=0 python gradio_run.py
     ```
-    If you are mainland user, you may try `export HF_ENDPOINT=https://hf-mirror.com` to use huggingface mirror to facilitate the downlaod of some necessary checkpoints to run our system.
+    If you are mainland user, you may try `export HF_ENDPOINT=https://hf-mirror.com` to use huggingface mirror to facilitate the download of some necessary checkpoints to run our system.
 
 ## Tutorial
 
