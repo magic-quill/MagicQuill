@@ -201,7 +201,7 @@ class PowerPaint:
 
     def model_update(self, model, vae, image, mask, powerpaint, clip, positive, negative, fitting, function, scale, start_at, end_at, save_memory):
 
-        is_SDXL, is_PP = check_compatibilty(model, powerpaint)
+        is_SDXL, is_PP = check_compatibility(model, powerpaint)
         if not is_PP:
             raise Exception("BrushNet model was loaded, please use BrushNet node")  
 
@@ -336,7 +336,7 @@ class BrushNet:
 
     def model_update(self, model, vae, image, mask, brushnet, positive, negative, scale, start_at, end_at):
 
-        is_SDXL, is_PP = check_compatibilty(model, brushnet)
+        is_SDXL, is_PP = check_compatibility(model, brushnet)
 
         if is_PP:
             raise Exception("PowerPaint model was loaded, please use PowerPaint node")  
@@ -623,7 +623,7 @@ def brushnet_blocks(sd):
 
 
 # Check models compatibility
-def check_compatibilty(model, brushnet):
+def check_compatibility(model, brushnet):
     is_SDXL = False
     is_PP = False
     if isinstance(model.model.model_config, comfy.supported_models.SD15):

@@ -248,7 +248,7 @@ class VAE:
                 self.process_input = lambda audio: audio
                 self.working_dtypes = [torch.float16, torch.bfloat16, torch.float32]
             else:
-                logging.warning("WARNING: No VAE weights detected, VAE not initalized.")
+                logging.warning("WARNING: No VAE weights detected, VAE not initialized.")
                 self.first_stage_model = None
                 return
         else:
@@ -521,9 +521,9 @@ def load_checkpoint_guess_config(ckpt_path, output_vae=True, output_clip=True, o
             clipvision = clip_vision.load_clipvision_from_sd(sd, model_config.clip_vision_prefix, True)
 
     if output_model:
-        inital_load_device = model_management.unet_inital_load_device(parameters, unet_dtype)
+        initial_load_device = model_management.unet_initial_load_device(parameters, unet_dtype)
         offload_device = model_management.unet_offload_device()
-        model = model_config.get_model(sd, diffusion_model_prefix, device=inital_load_device)
+        model = model_config.get_model(sd, diffusion_model_prefix, device=initial_load_device)
         model.load_model_weights(sd, diffusion_model_prefix)
 
     if output_vae:
@@ -555,8 +555,8 @@ def load_checkpoint_guess_config(ckpt_path, output_vae=True, output_clip=True, o
         logging.debug("left over keys: {}".format(left_over))
 
     if output_model:
-        model_patcher = comfy.model_patcher.ModelPatcher(model, load_device=load_device, offload_device=model_management.unet_offload_device(), current_device=inital_load_device)
-        if inital_load_device != torch.device("cpu"):
+        model_patcher = comfy.model_patcher.ModelPatcher(model, load_device=load_device, offload_device=model_management.unet_offload_device(), current_device=initial_load_device)
+        if initial_load_device != torch.device("cpu"):
             logging.info("loaded straight to GPU")
             model_management.load_model_gpu(model_patcher)
 
