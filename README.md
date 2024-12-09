@@ -78,7 +78,7 @@ If you are a Windows user, you may try to use `windows_setup.bat` to convenientl
 Alternatively, follow the step-by-step installation guide.
 
 3. create environment
-    ```
+    ```bash
     conda create -n MagicQuill python=3.10 -y
     conda activate MagicQuill
     ```
