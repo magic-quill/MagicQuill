@@ -1,0 +1,21 @@
+services:
+  magicquill:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # Set environment variables for your container
+      # PYTORCH_CUDA_ALLOC_CONF: "expandable_segments:True"
+      PYTORCH_CUDA_ALLOC_CONF: max_split_size_mb:128
+    runtime: nvidia  # Use NVIDIA runtime for GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: ["gpu"]
+    volumes:
+      - $HOME/apps/MagicQuill/models:/home/quill/MagicQuill/models
+    ports:
+      - "7860:7860"  # Map container port to host port if applicable
