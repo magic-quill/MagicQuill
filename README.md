@@ -21,6 +21,7 @@ There is an HD video on [Youtube](https://www.youtube.com/watch?v=5DiKfONMnE4).
   - [TODO List](#todo-list)
   - [Update Log](#update-log)
   - [Hardware Requirements](#hardware-requirements)
+  - [Docker Container](#docker-container)
   - [Setup](#setup)
   - [Tutorial](#tutorial)
   - [Citation](#citation)
@@ -56,7 +57,7 @@ pip install gradio_magicquill-0.0.1-py3-none-any.whl
 
 For users with limited GPU resources, please try our [Huggingface Demo](https://huggingface.co/spaces/AI4Editing/MagicQuill) and [Modelscope Demo](https://modelscope.cn/studios/ant-research/MagicQuill_demo). Also, consider disabling the DrawNGuess automatic prompt filling by clicking the wand icon above if it takes too long time on your machine.
 
-## Docker container
+## Docker Container
 
 You can build a docker container with MagicQuill as follows:
 
