@@ -16,6 +16,6 @@ services:
               count: 1
               capabilities: ["gpu"]
     volumes:
-      - $HOME/apps/MagicQuill/models:/home/quill/MagicQuill/models
+      - /data/magicquill/models:/home/quill/MagicQuill/models
     ports:
       - "7860:7860"  # Map container port to host port if applicable
