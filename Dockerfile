@@ -26,6 +26,8 @@ RUN bash -c "/home/${APP_USER}/install-all.sh --install-miniconda"
 ADD --chown=${APP_USER}:${APP_USER} --chmod=750 gradio_run.py /home/${APP_USER}/MagicQuill/
 ADD --chown=${APP_USER}:${APP_USER} --chmod=750 docker/95-MagicQuill.sh /opt/nvidia/entrypoint.d/
 
+RUN sed -i 's/host="127.0.0.1"/host="0.0.0.0"/' /home/${APP_USER}/MagicQuill/gradio_run.py
+
 EXPOSE 7860
 
 #
