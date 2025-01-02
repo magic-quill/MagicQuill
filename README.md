@@ -74,6 +74,8 @@ You can build a docker container with MagicQuill as follows:
     unzip models.zip
     ```
     If the .zip file is not accessible, download it via browser. All checkpoints are about 25 GB in total. It may take some time to download. Alternatively, check our checkpoints at [huggingface](https://huggingface.co/LiuZichen/MagicQuill-models).
+    
+    Note: these can be located anywhere on the host computer, but Docker Compose expects them to be in `/data/magicquill/models` by default. Update `docker-compose.yaml` if you unzip them to another location.
 
 3. build the image
    ```
