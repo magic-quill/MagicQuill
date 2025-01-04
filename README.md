@@ -21,6 +21,7 @@ There is an HD video on [Youtube](https://www.youtube.com/watch?v=5DiKfONMnE4).
   - [TODO List](#todo-list)
   - [Update Log](#update-log)
   - [Hardware Requirements](#hardware-requirements)
+  - [Docker Container](#docker-container)
   - [Setup](#setup)
   - [Tutorial](#tutorial)
   - [Citation](#citation)
@@ -38,6 +39,7 @@ There is an HD video on [Youtube](https://www.youtube.com/watch?v=5DiKfONMnE4).
 
 ## Update Log
 
+- [2025.01.02] 🎉 Exciting News: MagicQuill docker container is now available. You can now build & run your own image in a cleaner, isolated environment.
 - [2024.11.21] 📢 Update the save button; Fix path bug on Windows; Add `.bat` and `.sh` files for convenient environment install on Windows and Linux. Thanks [lior007](https://github.com/lior007) and [JamesIV4](https://github.com/JamesIV4).
 - [2024.11.25] 📢 New UI Updates: Drag & Drop Images + Download Button: We've enhanced our interface with two exciting features! Now you can easily upload images with drag & drop functionality, and quickly save your work using our new download button. Try it out and let us know what you think!
 - [2024.12.06] 📢 New Feature Updates: Auto-save and Resolution Adjustment are now enabled in the parameter settings. Thanks [Furkan Gözükara](https://github.com/FurkanGozukara) for his brilliant suggestions.
@@ -56,6 +58,34 @@ pip install gradio_magicquill-0.0.1-py3-none-any.whl
 
 For users with limited GPU resources, please try our [Huggingface Demo](https://huggingface.co/spaces/AI4Editing/MagicQuill) and [Modelscope Demo](https://modelscope.cn/studios/ant-research/MagicQuill_demo). Also, consider disabling the DrawNGuess automatic prompt filling by clicking the wand icon above if it takes too long time on your machine.
 
+## Docker Container
+
+You can build a docker container with MagicQuill as follows:
+
+1. git clone repo. **Please don't forget the `--recursive` flag.** Otherwise, you will find `LLaVA` submodule missing.
+    ```
+    git clone --recursive https://github.com/magic-quill/MagicQuill.git
+    cd MagicQuill
+    ```
+
+2. download and unzip checkpoints
+    ```
+    wget -O models.zip "https://hkustconnect-my.sharepoint.com/:u:/g/personal/zliucz_connect_ust_hk/EWlGF0WfawJIrJ1Hn85_-3gB0MtwImAnYeWXuleVQcukMg?e=Gcjugg&download=1"
+    unzip models.zip
+    ```
+    If the .zip file is not accessible, download it via browser. All checkpoints are about 25 GB in total. It may take some time to download. Alternatively, check our checkpoints at [huggingface](https://huggingface.co/LiuZichen/MagicQuill-models).
+    
+    Note: these can be located anywhere on the host computer, but Docker Compose expects them to be in `/data/magicquill/models` by default. Update `docker-compose.yaml` if you unzip them to another location.
+
+3. build the image
+   ```
+   docker compose build
+   ```
+
+4. run the image
+   ```
+   docker compose up -d
+   ```
 
 ##  Setup
 Follow the following guide to set up the environment.

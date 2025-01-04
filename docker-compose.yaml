@@ -1,0 +1,24 @@
+services:
+  magicquill:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      #
+      # Set environment variables for your container
+      #
+      # expandable_segments (default False) allows the allocator to create a segment initially and then expand its size later when more memory is needed.
+      # Ref: https://pytorch.org/docs/stable/notes/cuda.html
+      PYTORCH_CUDA_ALLOC_CONF: "expandable_segments:False"
+    runtime: nvidia  # Use NVIDIA runtime for GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: ["gpu"]
+    volumes:
+      - /data/magicquill/models:/home/quill/MagicQuill/models
+    ports:
+      - "7860:7860"  # Map container port to host port if applicable
