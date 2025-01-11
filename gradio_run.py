@@ -1,7 +1,6 @@
 import subprocess
 import os
 import gradio as gr
-import os
 from gradio_magicquill import MagicQuill
 import random
 import torch
@@ -16,7 +15,6 @@ from MagicQuill import folder_paths
 from MagicQuill.llava_new import LLaVAModel
 from MagicQuill.scribble_color_edit import ScribbleColorEditModel
 import time
-import io
 
 AUTO_SAVE = False
 RES = 512
