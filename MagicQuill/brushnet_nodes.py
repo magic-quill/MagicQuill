@@ -109,7 +109,6 @@ class BrushNetLoader:
             offload_folder=None,
             offload_state_dict=False,
             dtype=torch_dtype,
-            force_hooks=False,
         )
 
         if is_PP: 

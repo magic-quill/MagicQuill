@@ -4,3 +4,6 @@ __pycache__
 .DS_Store
 __MacOSX
 output/
+__MACOSX/
+models.zip
+models/
