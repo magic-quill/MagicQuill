@@ -45,7 +45,7 @@ There is an HD video on [Youtube](https://www.youtube.com/watch?v=5DiKfONMnE4).
 - [2024.12.07] 🎉 Exciting News: ComfyUI MagicQuill Node has been released! Check the repository https://github.com/magic-quill/ComfyUI_MagicQuill for more details.
 - [2024.12.16] 🎉 Exciting News: MagicQuill is also available at [Modelscope](https://modelscope.cn/studios/ant-research/MagicQuill_demo). Thanks for their amazing support and infrastructure.
 - [2025.01.02] 🎉 Exciting News: MagicQuill docker container is now available. You can now build & run your own image in a cleaner, isolated environment. Thanks [gbudge](https://github.com/gbudge) for his contribution.
-
+- [2025.02.27] 🎉 Exciting News: MagicQuill has been accepted to CVPR 2025! Looking forward to meeting everyone in Tennessee. See you!
 To update the latest features, pull the latest code and re-install the gradio_magicquill:
 ```
 pip uninstall -y gradio_magicquill-0.0.1-py3-none-any.whl
