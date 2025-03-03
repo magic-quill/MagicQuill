@@ -505,7 +505,7 @@ def unet_offload_device():
     else:
         return torch.device("cpu")
 
-def unet_inital_load_device(parameters, dtype):
+def unet_initial_load_device(parameters, dtype):
     torch_dev = get_torch_device()
     if vram_state == VRAMState.HIGH_VRAM:
         return torch_dev
